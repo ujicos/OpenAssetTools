@@ -7,6 +7,7 @@
 #include "Game/T5/Techset/TechsetDumperT5.h"
 #include "Game/T5/XAnim/XAnimDumperT5.h"
 #include "Game/T5/XModel/XModelDumperT5.h"
+#include "Game/T5/World/StaticModelPlacementsDumperT5.h"
 #include "LightDef/LightDefDumperT5.h"
 #include "Localize/LocalizeDumperT5.h"
 #include "PhysConstraints/PhysConstraintsInfoStringDumperT5.h"
@@ -40,7 +41,7 @@ void ObjWriter::RegisterAssetDumpers(AssetDumpingContext& context)
     // REGISTER_DUMPER(AssetDumperGameWorldSp, m_game_world_sp)
     // REGISTER_DUMPER(AssetDumperGameWorldMp, m_game_world_mp)
     RegisterAssetDumper(std::make_unique<map_ents::DumperT5>());
-    // REGISTER_DUMPER(AssetDumperGfxWorld, m_gfx_world)
+    RegisterAssetDumper(std::make_unique<gfx_world::StaticModelPlacementsDumperT5>());
     RegisterAssetDumper(std::make_unique<light_def::DumperT5>());
     RegisterAssetDumper(std::make_unique<font::JsonDumperT5>());
     // REGISTER_DUMPER(AssetDumperMenuList, m_menu_list)
